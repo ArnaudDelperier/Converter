@@ -37,21 +37,22 @@ function Converter() {
   }, [valueToConvert, currencyToConvert, convertedCurrency])
 
   return (
-    <div className="Converter">
-      <input type="number" value={valueToConvert} onChange={(e) => setValueToConvert(e.target.value)} />
-      <select value={currencyToConvert.code} onChange={(e) => setCurrencyToConvert(currencies.find(currency => currency.code === e.target.value))}>
+    <div className="converter">
+      <h1 className="converter__title">Currency converter</h1>
+      <input className="converter__input" type="number" value={valueToConvert} onChange={(e) => setValueToConvert(e.target.value)} />
+      <select className="converter__select" value={currencyToConvert.code} onChange={(e) => setCurrencyToConvert(currencies.find(currency => currency.code === e.target.value))}>
           {currencies.map((currency) => {
               return <option value={currency.code}>{currency.name}</option>
           })}
       </select>
-      <div> = </div>
-      <select value={convertedCurrency.code} onChange={(e) => setConvertedCurrency(currencies.find(currency => currency.code === e.target.value))}>
+      <div className="equal"> = </div>
+      <select className="converter__select" value={convertedCurrency.code} onChange={(e) => setConvertedCurrency(currencies.find(currency => currency.code === e.target.value))}>
           {currencies.map((currency) => {
               return <option value={currency.code}>{currency.name}</option>
           })}
       </select>
 
-      <div> {valueResult} </div>
+      <div className="converter__result"> {valueResult} </div>
     </div>
   );
 }
